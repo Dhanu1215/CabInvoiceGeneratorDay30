@@ -1,7 +1,5 @@
 package com.blp.cabinvoicegenerator;
 
-import java.util.Objects;
-
 public class InvoiceSumarry {
     public double totalFare;
     public int length;

@@ -1,4 +1,5 @@
 import com.blp.cabinvoicegenerator.CabInvoiceGenerator;
+import com.blp.cabinvoicegenerator.InvoiceSumarry;
 import com.blp.cabinvoicegenerator.Ride;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,11 +21,20 @@ public class CabInvoiceGeneratorTest {
     }
 
     @Test
-    public void givenMultipleRides_ShouldReturnInvoiceSummary() {
+    public void givenMultipleRides_ShouldReturnMultipleRides() {
         CabInvoiceGenerator invoice = new CabInvoiceGenerator();
         Ride[] rides = {new Ride(2.0, 5), new Ride(0.1, 1)};
         double totalFare = invoice.calculateFare(rides);
         Assert.assertEquals(30.0, totalFare, 0.0);
+    }
+    @Test
+    public void invoiceGenerator_ShouldReturnInvoiceSummary() {
+        CabInvoiceGenerator invoice = new CabInvoiceGenerator();
+        Ride[] rides = {new Ride(2.0, 5), new Ride(0.1, 1)};
+        double totalFare = invoice.calculateFare(rides);
+        InvoiceSumarry actualInvoiceSumarry = new InvoiceSumarry(totalFare, rides.length);
+        InvoiceSumarry expectedInvoiceSumarry = new InvoiceSumarry(30.0, 2);
+        Assert.assertEquals(expectedInvoiceSumarry,actualInvoiceSumarry);
     }
 
 }

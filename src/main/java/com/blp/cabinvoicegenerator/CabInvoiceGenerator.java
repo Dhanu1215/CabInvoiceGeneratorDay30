@@ -4,6 +4,7 @@ package com.blp.cabinvoicegenerator;
  * Cab Invoice Generator Program
  */
 public class CabInvoiceGenerator {
+
     private static final double COST_PER_KM = 10.0;
     private static final int COST_PER_TIME = 1;
     private static final int MINIMUM_FARE = 5;

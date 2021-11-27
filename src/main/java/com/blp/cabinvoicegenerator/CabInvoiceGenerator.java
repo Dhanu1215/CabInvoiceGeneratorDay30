@@ -15,7 +15,7 @@ public class CabInvoiceGenerator {
      * @param time
      * @return
      */
-    public double CalculateFare(double distance, double time) {
+    public double calculateFare(double distance, double time) {
         double calculate_Fare = (distance * COST_PER_KM) + (time * COST_PER_TIME);
         if (calculate_Fare < MINIMUM_FARE) {
             return MINIMUM_FARE;
@@ -25,15 +25,12 @@ public class CabInvoiceGenerator {
 
     /**
      * Call method to calculate average of multiple rides fare.
-     * @param v
-     * @param i
-     * @return
      */
-    public static double CalculateAvgFare(double v, int i) {
-        double calculate_Fare = (v * COST_PER_KM) + (i * COST_PER_TIME);
-        if (calculate_Fare < MINIMUM_FARE) {
-            return MINIMUM_FARE;
-        } else
-            return calculate_Fare;
+    public double calculateFare(Ride[] rides) {
+        double totalFare = 0.0;
+        for (Ride ride : rides) {
+            totalFare += calculateFare(ride.getDistance(), ride.getTime());
+        }
+        return totalFare;
     }
 }

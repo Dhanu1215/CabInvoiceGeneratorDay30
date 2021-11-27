@@ -10,7 +10,6 @@ public class CabInvoiceGenerator {
 
     /**
      * Call method to calculate fare
-     *
      * @param distance
      * @param time
      * @return
